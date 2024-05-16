@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:memorymate/core/constants/color_constants.dart';
 import 'package:memorymate/core/utils/asset_provider.dart';
 import 'package:memorymate/core/utils/util.dart';
-import 'package:memorymate/screens/auth_screen/login_screen.dart';
+import 'package:memorymate/screens/auth_screen/login_screen/model/login_screen.dart';
+import 'package:memorymate/screens/auth_screen/login_screen/model/widgets/login_header.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -23,61 +24,62 @@ class _SignupScreenState extends State<SignupScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.symmetric(
-                    horizontal: kHorizontalMargin, vertical: kVerticalMargin),
-                child: Column(
-                  children: [
-                    Center(
-                      child: Image.asset(
-                        Assets.images.Logo,
-                        height: height * 0.2,
-                        width: height,
-                      ),
-                    ),
-                    ResponsiveText(
-                      "MemoryMate",
-                      fontSize: 32,
-                      fontFamily: 'SF Pro Rounded',
-                      fontWeight: FontWeight.w400,
-                      textColor: Color(0xFF614E7E),
-                    ),
-                    ResponsiveText(
-                      "Empowering Dementia Care",
-                      fontSize: 20,
-                      fontFamily: 'Helvetic',
-                      fontWeight: FontWeight.w400,
-                      textColor: Color(0xFF2F676A),
-                    ),
-                  ],
-                ),
-              ),
+              LoginHeader(),
               // Container(
               //   margin: EdgeInsets.symmetric(
-              //     horizontal: kHorizontalMargin,
-              //   ),
-              //   // height: 10,
-              //   // color: Colors.amber,
+              //       horizontal: kHorizontalMargin, vertical: kVerticalMargin),
               //   child: Column(
-              //     mainAxisAlignment: MainAxisAlignment.start,
-              //     crossAxisAlignment: CrossAxisAlignment.start,
               //     children: [
-              //       ResponsiveText(
-              //         "Register",
-              //         fontSize: 24,
-              //         fontFamily: 'Times',
-              //         fontWeight: FontWeight.w400,
-              //         textColor: Colors.black,
+              //       Center(
+              //         child: Image.asset(
+              //           Assets.images.Logo,
+              //           height: height * 0.2,
+              //           width: height,
+              //         ),
               //       ),
               //       ResponsiveText(
-              //         "Login to your account and indulge in a personalized shopping experience tailored just for you.",
-              //         fontSize: 12,
-              //         textColor: Color(0xFF454C53),
+              //         "MemoryMate",
+              //         fontSize: 32,
+              //         fontFamily: 'SF Pro Rounded',
               //         fontWeight: FontWeight.w400,
-              //       )
+              //         textColor: Color(0xFF614E7E),
+              //       ),
+              //       ResponsiveText(
+              //         "Empowering Dementia Care",
+              //         fontSize: 20,
+              //         fontFamily: 'SF Pro',
+              //         fontWeight: FontWeight.w400,
+              //         textColor: Color(0xFF2F676A),
+              //       ),
               //     ],
               //   ),
               // ),
+              Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: kHorizontalMargin,
+                ),
+                // height: 10,
+                // color: Colors.amber,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ResponsiveText(
+                      "Register",
+                      fontSize: 24,
+                      fontFamily: 'Times',
+                      fontWeight: FontWeight.w400,
+                      textColor: Colors.black,
+                    ),
+                    ResponsiveText(
+                      "Login to your account and indulge in a personalized shopping experience tailored just for you.",
+                      fontSize: 12,
+                      textColor: Color(0xFF454C53),
+                      fontWeight: FontWeight.w400,
+                    )
+                  ],
+                ),
+              ),
               Container(
                 margin: EdgeInsets.symmetric(
                     horizontal: kHorizontalMargin, vertical: kVerticalMargin),

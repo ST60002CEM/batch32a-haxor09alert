@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:memorymate/core/utils/util.dart';
-import 'package:memorymate/screens/auth_screen/login_screen.dart';
+import 'package:memorymate/screens/auth_screen/login_screen/model/login_screen.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 
 import '../../core/constants/color_constants.dart';

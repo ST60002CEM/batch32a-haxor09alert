@@ -5,7 +5,7 @@ import 'package:memorymate/core/utils/asset_provider.dart';
 import 'package:memorymate/core/utils/util.dart';
 import 'package:memorymate/screens/auth_screen/forget_password.dart';
 import 'package:memorymate/screens/auth_screen/login_screen/model/widgets/login_header.dart';
-import 'package:memorymate/screens/auth_screen/signup_screen.dart';
+import 'package:memorymate/screens/auth_screen/register_screen/model/register_screen.dart';
 import 'package:memorymate/screens/home_screens/homepage.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 
@@ -27,34 +27,35 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const LoginHeader(),
-              // Container(
-              //   margin: EdgeInsets.symmetric(
-              //     horizontal: kHorizontalMargin,
-              //   ),
-              //   // height: 10,
-              //   // color: Colors.amber,
-              //   child: Column(
-              //     mainAxisAlignment: MainAxisAlignment.start,
-              //     crossAxisAlignment: CrossAxisAlignment.start,
-              //     children: [
-              // ResponsiveText(
-              //   "LOGIN",
-              //   fontSize: 24,
-              //   fontFamily: 'Times',
-              //   fontWeight: FontWeight.w400,
-              //   textColor: Colors.black,
-              // ),
-              //       ResponsiveText(
-              //         "Login to your account and indulge in a personalized shopping experience tailored just for you.",
-              //         fontSize: 12,
-              //         textColor: Color(0xFF454C53),
-              //         fontWeight: FontWeight.w400,
-              //       )
-              //     ],
-              //   ),
-              // ),
+              Container(
+                margin: EdgeInsets.symmetric(
+                  horizontal: kHorizontalMargin,
+                ),
+                // height: 10,
+                // color: Colors.amber,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ResponsiveText(
+                      "LOGIN",
+                      fontSize: 24,
+                      fontFamily: 'Times',
+                      fontWeight: FontWeight.w400,
+                      textColor: Colors.black,
+                    ),
+                    ResponsiveText(
+                      "Login to your account and indulge in a personalized shopping experience tailored just for you.",
+                      fontSize: 12,
+                      textColor: Color(0xFF454C53),
+                      fontWeight: FontWeight.w400,
+                    )
+                  ],
+                ),
+              ),
               Container(
                 margin: EdgeInsets.symmetric(
                     horizontal: kHorizontalMargin, vertical: kVerticalMargin),
@@ -161,7 +162,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
-
               Container(
                 margin: EdgeInsets.symmetric(horizontal: kHorizontalMargin),
                 child: Row(
