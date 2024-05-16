@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:memorymate/core/constants/color_constants.dart';
 import 'package:memorymate/core/utils/asset_provider.dart';
 import 'package:memorymate/core/utils/util.dart';
 import 'package:memorymate/screens/auth_screen/forget_password.dart';
+import 'package:memorymate/screens/auth_screen/login_screen/model/widgets/login_header.dart';
 import 'package:memorymate/screens/auth_screen/signup_screen.dart';
 import 'package:memorymate/screens/home_screens/homepage.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
@@ -26,36 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.symmetric(
-                    horizontal: kHorizontalMargin * 0.5,
-                    vertical: kVerticalMargin),
-                child: Column(
-                  children: [
-                    Center(
-                      child: Image.asset(
-                        Assets.images.Logo,
-                        height: height * 0.2,
-                        width: height,
-                      ),
-                    ),
-                    ResponsiveText(
-                      "MemoryMate",
-                      fontSize: 32,
-                      fontFamily: 'SF Pro Rounded',
-                      fontWeight: FontWeight.w400,
-                      textColor: Color(0xFF614E7E),
-                    ),
-                    ResponsiveText(
-                      "Empowering Dementia Care",
-                      fontSize: 20,
-                      fontFamily: 'Helvetic',
-                      fontWeight: FontWeight.w400,
-                      textColor: Color(0xFF2F676A),
-                    ),
-                  ],
-                ),
-              ),
+              const LoginHeader(),
               // Container(
               //   margin: EdgeInsets.symmetric(
               //     horizontal: kHorizontalMargin,
@@ -188,6 +161,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
               ),
+
               Container(
                 margin: EdgeInsets.symmetric(horizontal: kHorizontalMargin),
                 child: Row(
@@ -223,21 +197,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
-              Container(
-                margin: EdgeInsets.symmetric(
-                    horizontal: kHorizontalMargin, vertical: kVerticalMargin),
-                child: Row(
-                  children: [
-                    Container(
-                      height: 10,
-                      width: 10,
-                      decoration: BoxDecoration(
-                        color: Colors.red,
-                      ),
-                    )
-                  ],
-                ),
-              )
             ],
           ),
         ),
