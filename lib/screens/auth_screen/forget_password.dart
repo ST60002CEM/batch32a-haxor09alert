@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:memorymate/core/constants/color_constants.dart';
 import 'package:memorymate/core/constants/string_constants.dart';
 import 'package:memorymate/core/utils/util.dart';
-import 'package:memorymate/screens/auth_screen/opt_screen.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 
 class ForgetPassword extends StatefulWidget {
@@ -71,10 +70,10 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8))),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => OtpScreen()),
-                );
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => OtpScreen()),
+                // );
               },
               child: ResponsiveText(
                 "SUBMIT",

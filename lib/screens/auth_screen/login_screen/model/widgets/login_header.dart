@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:memorymate/core/constants/string_constants.dart';
 import 'package:memorymate/core/utils/asset_provider.dart';
 import 'package:memorymate/core/utils/util.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
@@ -12,8 +13,7 @@ class LoginHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(
-          horizontal: kHorizontalMargin * 0.5,
-          vertical: kVerticalMargin),
+          horizontal: kHorizontalMargin * 0.5, vertical: kVerticalMargin),
       child: Column(
         children: [
           Center(
@@ -24,7 +24,7 @@ class LoginHeader extends StatelessWidget {
             ),
           ),
           ResponsiveText(
-            "MemoryMate",
+            KAppName,
             fontSize: 32,
             fontFamily: 'SF Pro Rounded',
             fontWeight: FontWeight.w400,
