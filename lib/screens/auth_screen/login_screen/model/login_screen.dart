@@ -41,6 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Form(
             key: _formKey,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const LoginHeader(),
                 Container(
@@ -58,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         textColor: Colors.black,
                       ),
                       ResponsiveText(
-                        "Login to your account and indulge in a personalized shopping experience tailored just for you.",
+                        "Login to your account and make enhance you memory.",
                         fontSize: 12,
                         textColor: Color(0xFF454C53),
                         fontWeight: FontWeight.w400,
