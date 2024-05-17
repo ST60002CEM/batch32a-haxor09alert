@@ -17,8 +17,12 @@ class _ForgetPasswordState extends State<ForgetPassword> {
     return Scaffold(
       backgroundColor: Color(kBackground),
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_rounded),
-        // title: ResponsiveText("Forget Password?"),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_rounded),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
         backgroundColor: Color(kBackground),
       ),
       body: Column(
@@ -56,7 +60,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                       fillColor: Color(0xffFFFFFF),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8))),
-                )
+                ),
               ],
             ),
           ),
@@ -70,10 +74,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8))),
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => OtpScreen()),
-                // );
+                // Add your onPressed functionality here
               },
               child: ResponsiveText(
                 "SUBMIT",
