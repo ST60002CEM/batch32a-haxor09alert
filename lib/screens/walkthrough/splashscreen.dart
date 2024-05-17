@@ -23,6 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
     const double kVerticalMargin = 16.0;
 
     return Scaffold(
+      backgroundColor: Color(0xffFDF3E7),
       body: Center(
         child: Container(
           margin: const EdgeInsets.symmetric(
