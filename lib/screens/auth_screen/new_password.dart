@@ -90,7 +90,7 @@ class _NewPasswordState extends State<NewPassword> {
                   MaterialPageRoute(builder: (context) => LoginScreen()),
                 );
               },
-            child: ResponsiveText(
+            child: const ResponsiveText(
               "Update",
               fontSize: 24,
               fontWeight: FontWeight.w400,

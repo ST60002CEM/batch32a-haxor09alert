@@ -23,14 +23,14 @@ class LoginHeader extends StatelessWidget {
               width: height,
             ),
           ),
-          ResponsiveText(
+          const ResponsiveText(
             KAppName,
             fontSize: 32,
             fontFamily: 'SF Pro Rounded',
             fontWeight: FontWeight.w400,
             textColor: Color(0xFF614E7E),
           ),
-          ResponsiveText(
+          const ResponsiveText(
             "Empowering Dementia Care",
             fontSize: 20,
             fontFamily: 'Helvetic',

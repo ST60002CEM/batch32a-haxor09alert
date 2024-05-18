@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:memorymate/core/constants/color_constants.dart';
 import 'package:memorymate/core/utils/asset_provider.dart';
 import 'package:memorymate/core/utils/util.dart';
@@ -35,7 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Color(kBackground),
+      backgroundColor: const Color(kBackground),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Form(
@@ -233,6 +232,87 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ],
+                  ),
+                ),
+                SizedBox(
+                  height: kVerticalMargin,
+                ),
+                Container(
+                  margin: EdgeInsets.symmetric(
+                      horizontal: kHorizontalMargin, vertical: kVerticalMargin),
+                  child: Center(
+                    child: Column(
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            // Implement Google sign-in logic here
+                          },
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: Size(width * 2, height * 0.07),
+                            backgroundColor: Colors.grey.shade300,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          icon: Image.asset(
+                            Assets.images.GoogleLogo,
+                            height: 30,
+                          ), // Add Google icon here
+                          label: const ResponsiveText(
+                            'Sign with Google',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(height: kVerticalMargin),
+                        ElevatedButton.icon(
+                          onPressed: () async {
+                            // final LoginResult result =
+                            //     await FacebookAuth.instance.login();
+                            // Handle Facebook login result here
+                          },
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: Size(width * 2, height * 0.07),
+                            backgroundColor: Colors.grey.shade300,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          icon: Image.asset(
+                            Assets.images.FacebookLogo,
+                            height: 30,
+                          ), // Add Facebook icon here
+                          label: const ResponsiveText(
+                            'Sign with Facebook',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        SizedBox(height: kVerticalMargin),
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            // Implement Apple sign-in logic here
+                          },
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: Size(width * 2, height * 0.07),
+                            backgroundColor: Colors.grey.shade300,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          // icon: Icon(Icons.apple), // Add Apple icon here
+                          icon: Image.asset(
+                            Assets.images.AppleLogo,
+                            height: 30,
+                          ),
+                          label: const ResponsiveText(
+                            'Sign with Apple',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
