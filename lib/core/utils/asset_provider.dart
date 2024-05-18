@@ -4,13 +4,13 @@ class _AssetsImagesGen {
   const _AssetsImagesGen();
 
   String get Logo => '$kImagesPath/Logo1.png';
-  String get WalkThrough1 => '$kImagesPath/WalkThrough1.png';
-  String get WalkThrough2 => '$kImagesPath/WalkThrough2.png';
-  String get Product => '$kImagesPath/product.jpeg';
-  String get Baby => '$kImagesPath/baby.png';
-  String get Cosmetics => '$kImagesPath/cosmetics.png';
-  String get MenGromming => '$kImagesPath/men_grooming.png';
-  String get Men => '$kImagesPath/men.png';
+  String get AppleLogo => '$kImagesPath/apple.png';
+  String get GoogleLogo => '$kImagesPath/google.png';
+  String get FacebookLogo => '$kImagesPath/facebook.png';
+  String get EmergencyServices => '$kImagesPath/emergency .png';
+  String get Notes => '$kImagesPath/notes.png';
+  String get PhotoAlbums => '$kImagesPath/album.png';
+  String get DigitalCalendar => '$kImagesPath/digitalcalendars.png';
   String get Woman => '$kImagesPath/woman.png';
   String get Accessory => '$kImagesPath/accessory.png';
   String get MensApperal => '$kImagesPath/men.jpeg';

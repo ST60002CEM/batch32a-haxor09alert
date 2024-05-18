@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:memorymate/core/constants/string_constants.dart';
 import 'package:memorymate/core/utils/asset_provider.dart';
-import 'package:memorymate/core/utils/util.dart';
 import 'package:memorymate/screens/auth_screen/login_screen/model/login_screen.dart';
-import 'package:memorymate/screens/auth_screen/login_screen/model/widgets/login_header.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -23,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     const double kVerticalMargin = 16.0;
 
     return Scaffold(
-      backgroundColor: Color(0xffFDF3E7),
+      backgroundColor: const Color(0xffFDF3E7),
       body: Center(
         child: Container(
           margin: const EdgeInsets.symmetric(

@@ -19,11 +19,11 @@ class _ChangePasswordState extends State<ChangePassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(kBackground),
+      backgroundColor: const Color(kBackground),
       appBar: AppBar(
-        leading: Icon(Icons.arrow_back_ios_rounded),
-        backgroundColor: Color(kBackground),
-        title: ResponsiveText(
+        leading: const Icon(Icons.arrow_back_ios_rounded),
+        backgroundColor: const Color(kBackground),
+        title: const ResponsiveText(
           "Change Password",
           fontSize: 16,
           fontWeight: FontWeight.w600,
@@ -36,7 +36,7 @@ class _ChangePasswordState extends State<ChangePassword> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ResponsiveText(
+                const ResponsiveText(
                   "Old Password",
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -45,7 +45,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                   decoration: InputDecoration(
                     // hintText: "Alekh Chaudhary",
                     filled: true,
-                    fillColor: Color(0xffF6E9FC),
+                    fillColor: const Color(0xffF6E9FC),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(8))
                   ),
                 )
@@ -57,7 +57,7 @@ class _ChangePasswordState extends State<ChangePassword> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ResponsiveText(
+                const ResponsiveText(
                   "New Password",
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -66,7 +66,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                   decoration: InputDecoration(
                     // hintText: "9800000000",
                     filled: true,
-                    fillColor: Color(0xffF6E9FC),
+                    fillColor: const Color(0xffF6E9FC),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(8))
                   ),
                 )
@@ -78,7 +78,7 @@ class _ChangePasswordState extends State<ChangePassword> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                ResponsiveText(
+                const ResponsiveText(
                   "Confirm Password",
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
@@ -87,7 +87,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                   decoration: InputDecoration(
                     // hintText: "",
                     filled: true,
-                    fillColor: Color(0xffF6E9FC),
+                    fillColor: const Color(0xffF6E9FC),
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(8))
                   ),
                 ),
@@ -101,10 +101,10 @@ class _ChangePasswordState extends State<ChangePassword> {
                         // Navigate to the login page when "Login" is clicked
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => ForgetPassword()),
+                          MaterialPageRoute(builder: (context) => const ForgetPassword()),
                         );
                       },
-                      child: ResponsiveText(
+                      child: const ResponsiveText(
                         "Forget Password?",
                       ),
                     )
@@ -118,7 +118,7 @@ class _ChangePasswordState extends State<ChangePassword> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 fixedSize: Size(width*2, height*0.07),
-                backgroundColor: Color(0xff8219B3),
+                backgroundColor: const Color(0xff8219B3),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8)
                 )
@@ -126,10 +126,10 @@ class _ChangePasswordState extends State<ChangePassword> {
               onPressed: () {  
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
                 );
               },
-            child: ResponsiveText(
+            child: const ResponsiveText(
               "Update",
               fontSize: 24,
               fontWeight: FontWeight.w400,

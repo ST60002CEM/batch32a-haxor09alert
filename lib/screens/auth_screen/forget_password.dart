@@ -15,22 +15,22 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(kBackground),
+      backgroundColor: const Color(kBackground),
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_rounded),
+          icon: const Icon(Icons.arrow_back_ios_rounded),
           onPressed: () {
             Navigator.pop(context);
           },
         ),
-        backgroundColor: Color(kBackground),
+        backgroundColor: const Color(kBackground),
       ),
       body: Column(
         children: [
           Container(
             margin: EdgeInsets.symmetric(
                 horizontal: kHorizontalMargin, vertical: kVerticalMargin),
-            child: Column(
+            child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 ResponsiveText(
@@ -42,7 +42,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 ResponsiveText(
                   kForgetPassword,
                   fontSize: 12,
-                  textColor: const Color.fromARGB(255, 116, 116, 116),
+                  textColor: Color.fromARGB(255, 116, 116, 116),
                 ),
               ],
             ),
@@ -57,7 +57,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                   decoration: InputDecoration(
                       hintText: "Email/Phone.no",
                       filled: true,
-                      fillColor: Color(0xffFFFFFF),
+                      fillColor: const Color(0xffFFFFFF),
                       border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8))),
                 ),
@@ -70,13 +70,13 @@ class _ForgetPasswordState extends State<ForgetPassword> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                   fixedSize: Size(width * 2, height * 0.07),
-                  backgroundColor: Color(0xff8219B3),
+                  backgroundColor: const Color(0xff8219B3),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8))),
               onPressed: () {
                 // Add your onPressed functionality here
               },
-              child: ResponsiveText(
+              child: const ResponsiveText(
                 "SUBMIT",
                 fontSize: 24,
                 fontWeight: FontWeight.w400,
