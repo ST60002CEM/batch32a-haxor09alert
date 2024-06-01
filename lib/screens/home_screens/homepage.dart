@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
               backgroundImage: NetworkImage(
-                'https://www.google.com/imgres?q=alekh%20chaudhary&imgurl=https%3A%2F%2Fmedia.licdn.com%2Fdms%2Fimage%2FD4D03AQGNE7Hvh_Srbg%2Fprofile-displayphoto-shrink_800_800%2F0%2F1670084614155%3Fe%3D2147483647%26v%3Dbeta%26t%3DR9100TFTU9w_2f1wU8wXUM5IUgjF6xJtY1Sdjf_OuTo&imgrefurl=https%3A%2F%2Fin.linkedin.com%2Fin%2Falekh-dwivedi-he-him-127852192&docid=5lrfrfqJ39sdpM&tbnid=J2GbeQ1lyiF6XM&vet=12ahUKEwj6ssKQ6JSGAxUC4jgGHcNoAT8QM3oECGoQAA..i&w=560&h=560&hcb=2&itg=1&ved=2ahUKEwj6ssKQ6JSGAxUC4jgGHcNoAT8QM3oECGoQAA',
+                '',
               ),
             ),
           ),

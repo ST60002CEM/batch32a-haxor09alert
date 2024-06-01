@@ -36,7 +36,7 @@ class ResponsiveText extends StatelessWidget {
       text,
       textAlign: textAlign,
       textScaleFactor: 1,
-      style: style ?? Theme.of(context).textTheme.bodyText2?.copyWith(
+      style: style ?? Theme.of(context).textTheme.bodyMedium?.copyWith(
           color: textColor,
           fontFamily: fontFamily?? 'SFPro',
           fontSize: getResponsiveFont(fontSize),

@@ -51,7 +51,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 margin: const EdgeInsets.symmetric(vertical: kVerticalMargin),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    fixedSize: Size(width * 0.5, height * 0.07),
+                    fixedSize: Size(width * 0.56, height * 0.07),
                     backgroundColor: const Color(0xFF614E7E),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
