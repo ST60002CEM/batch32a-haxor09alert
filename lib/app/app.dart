@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:memorymate/features/auth_screen/login_screen/login_screen.dart';
 import 'package:memorymate/features/walkthrough/presentation/view/splash_view.dart';
 
 class App extends StatelessWidget {
