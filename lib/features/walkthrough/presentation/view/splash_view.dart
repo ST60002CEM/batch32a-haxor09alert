@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:memorymate/core/constants/string_constants.dart';
 import 'package:memorymate/core/utils/asset_provider.dart';
-import 'package:memorymate/features/auth_screen/login_screen/presentation/view/loginscreen_view.dart';
+import 'package:memorymate/features/login_screen/presentation/view/loginscreen_view.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 
 class SplashScreen extends StatefulWidget {
