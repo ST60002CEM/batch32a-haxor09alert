@@ -3,8 +3,8 @@ import 'package:memorymate/core/constants/color_constants.dart';
 import 'package:memorymate/core/utils/asset_provider.dart';
 import 'package:memorymate/core/utils/util.dart';
 import 'package:memorymate/features/forgetpassword/presentation/view/forget_password.dart';
-import 'package:memorymate/features/login_screen/widgets/login_header.dart';
-import 'package:memorymate/features/register_screen/presentation/view/register_view.dart';
+import 'package:memorymate/features/auth_screen/login_screen/widgets/login_header.dart';
+import 'package:memorymate/features/auth_screen/register_screen/presentation/view/register_view.dart';
 import 'package:memorymate/features/home_screens/presentation/view/home_view.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 

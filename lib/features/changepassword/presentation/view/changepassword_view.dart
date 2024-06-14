@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:memorymate/core/utils/util.dart';
 import 'package:memorymate/features/forgetpassword/presentation/view/forget_password.dart';
-import 'package:memorymate/features/login_screen/presentation/view/loginscreen_view.dart';
+import 'package:memorymate/features/auth_screen/login_screen/presentation/view/loginscreen_view.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 
 import '../../../../core/constants/color_constants.dart';
