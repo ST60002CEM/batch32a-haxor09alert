@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:memorymate/features/home_screen_widgets/notes/notes_view.dart';
 import 'package:memorymate/features/walkthrough/presentation/view/splash_view.dart';
 
 class App extends StatelessWidget {
@@ -8,7 +9,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      // home: SplashScreen(),
+      home: NotesView(),
     );
   }
 }
