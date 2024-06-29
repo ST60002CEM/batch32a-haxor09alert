@@ -11,78 +11,45 @@ class NotesView extends StatefulWidget {
 }
 
 class _NotesViewState extends State<NotesView> {
-  final List<Map<String, String>> _notes = []; // List to store notes with descriptions
-  final TextEditingController _noteTitleController = TextEditingController(); // Controller for note title
-  final TextEditingController _noteDescriptionController = TextEditingController(); // Controller for note description
+  final List<Map<String, String>> _allNotes = []; // All notes stored here
+  List<Map<String, String>> _visibleNotes = []; // Notes that are currently visible
+  final int _loadCount = 5; // Number of notes to load each time
+  final TextEditingController _noteTitleController = TextEditingController();
+  final TextEditingController _noteDescriptionController = TextEditingController();
 
   @override
   void dispose() {
     _noteTitleController.dispose();
-    _noteDescriptionController.dispose(); // Dispose both controllers to avoid memory leaks
+    _noteDescriptionController.dispose();
     super.dispose();
   }
 
   void _addNote() {
     if (_noteTitleController.text.isNotEmpty && _noteDescriptionController.text.isNotEmpty) {
       setState(() {
-        _notes.add({
+        _allNotes.add({
           "title": _noteTitleController.text,
-          "description": _noteDescriptionController.text, // Add both title and description to the list
+          "description": _noteDescriptionController.text,
         });
         _noteTitleController.clear();
-        _noteDescriptionController.clear(); // Clear both text fields
+        _noteDescriptionController.clear();
       });
     }
   }
 
-  void _deleteNote(int index) {
+  void _loadMoreNotes() {
+    int allNotesCount = _allNotes.length;
+    int currentCount = _visibleNotes.length;
+    int nextCount = (currentCount + _loadCount > allNotesCount) ? allNotesCount : currentCount + _loadCount;
     setState(() {
-      _notes.removeAt(index); // Remove the note at the given index
+      _visibleNotes = List.from(_allNotes.take(nextCount));
     });
   }
 
-  void _editNote(int index) {
-    // Set the text fields to the current note values for editing
-    _noteTitleController.text = _notes[index]['title']!;
-    _noteDescriptionController.text = _notes[index]['description']!;
-
-    // Display a dialog for editing
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Edit Note'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              TextField(
-                controller: _noteTitleController,
-                decoration: const InputDecoration(labelText: 'Note Title'),
-              ),
-              TextField(
-                controller: _noteDescriptionController,
-                decoration: const InputDecoration(labelText: 'Note Description'),
-              ),
-            ],
-          ),
-          actions: <Widget>[
-            TextButton(
-              onPressed: () {
-                setState(() {
-                  // Update the note with the new values
-                  _notes[index] = {
-                    "title": _noteTitleController.text,
-                    "description": _noteDescriptionController.text
-                  };
-                  Navigator.of(context).pop(); // Close the dialog
-                });
-              },
-              child: const Text('Update'),
-            ),
-          ],
-        );
-      },
-    );
+  @override
+  void initState() {
+    super.initState();
+    _loadMoreNotes(); // Load initial notes
   }
 
   @override
@@ -108,7 +75,7 @@ class _NotesViewState extends State<NotesView> {
               decoration: BoxDecoration(
                 color: Colors.grey.shade300,
                 borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.grey)
+                border: Border.all(color: Colors.grey),
               ),
               child: Padding(
                 padding: EdgeInsets.all(8.0),
@@ -125,8 +92,7 @@ class _NotesViewState extends State<NotesView> {
                       controller: _noteTitleController,
                       decoration: InputDecoration(
                         labelText: 'Note Title',
-                        fillColor: Colors.amber,
-                        border: OutlineInputBorder()
+                        border: OutlineInputBorder(),
                       ),
                     ),
                     SizedBox(height: kHorizontalMargin),
@@ -134,8 +100,7 @@ class _NotesViewState extends State<NotesView> {
                       controller: _noteDescriptionController,
                       decoration: InputDecoration(
                         labelText: 'Note Description',
-                        fillColor: Colors.lightGreen,
-                        border: OutlineInputBorder()
+                        border: OutlineInputBorder(),
                       ),
                       maxLines: 3,
                     ),
@@ -162,54 +127,40 @@ class _NotesViewState extends State<NotesView> {
                 ),
               ),
             ),
-            _buildHorizontalNotesList('Your Notes for Today:', height),
+            _buildNotesList(),
+            if (_visibleNotes.length < _allNotes.length)
+              Center(
+                child: ElevatedButton(
+                  onPressed: _loadMoreNotes,
+                  child: const Text('Load More'),
+                ),
+              ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildHorizontalNotesList(String title, double height) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-          child: ResponsiveText(
-            title,
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        SizedBox(
-          height: height * 1,
-          child: ListView.builder(
-            scrollDirection: Axis.vertical,
-            itemCount: _notes.length,
-            itemBuilder: (BuildContext context, int index) {
-              return Card(
-                child: ListTile(
-                  title: Text(_notes[index]['title']!),
-                  subtitle: Text(_notes[index]['description']!),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      IconButton(
-                        icon: const Icon(Icons.edit),
-                        onPressed: () => _editNote(index),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.delete),
-                        onPressed: () => _deleteNote(index),
-                      ),
-                    ],
-                  ),
-                ),
-              );
+  Widget _buildNotesList() {
+    return ListView.builder(
+      shrinkWrap: true, // Required within a SingleChildScrollView
+      physics: NeverScrollableScrollPhysics(), // Required within a SingleChildScrollView
+      itemCount: _visibleNotes.length,
+      itemBuilder: (BuildContext context, int index) {
+        return ListTile(
+          title: Text(_visibleNotes[index]['title']!),
+          subtitle: Text(_visibleNotes[index]['description']!),
+          trailing: IconButton(
+            icon: const Icon(Icons.delete),
+            onPressed: () {
+              setState(() {
+                _allNotes.removeAt(index);
+                _visibleNotes.removeAt(index);
+              });
             },
           ),
-        ),
-      ],
+        );
+      },
     );
   }
-}
+}     
