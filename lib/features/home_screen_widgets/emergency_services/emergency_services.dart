@@ -4,16 +4,16 @@ import 'package:memorymate/core/utils/asset_provider.dart';
 import 'package:memorymate/core/utils/util.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 
-class Notes extends StatelessWidget {
-  const Notes({
+class EmergencyServices extends StatelessWidget {
+  const EmergencyServices({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 240,
-      width: 180,
+      height: height * 0.3,
+      width: width * 0.45,
       decoration: BoxDecoration(
           color: const Color(kBackground),
           border: Border.all(color: Colors.grey),
@@ -22,15 +22,17 @@ class Notes extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Image.asset(Assets.images.Notes),
+            Image.asset(Assets.images.EmergencyServices),
             SizedBox(
               height: kHorizontalMargin,
             ),
-            const ResponsiveText(
-              'Notes',
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              textAlign: TextAlign.center,
+            Flexible(
+              child: const ResponsiveText(
+                'Emergency Services',
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                textAlign: TextAlign.center,
+              ),
             )
           ],
         ),

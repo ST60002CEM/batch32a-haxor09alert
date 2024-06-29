@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:memorymate/core/constants/color_constants.dart';
 import 'package:memorymate/core/utils/asset_provider.dart';
-import 'package:memorymate/core/utils/util.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 
-class DigitalCalendars extends StatelessWidget {
-  const DigitalCalendars({
+import '../../../core/utils/util.dart';
+
+class PhotoAlbum extends StatelessWidget {
+  const PhotoAlbum({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 240,
-      width: 180,
+      height: height * 0.3,
+      width: width * 0.45,
       decoration: BoxDecoration(
           color: const Color(kBackground),
           border: Border.all(color: Colors.grey),
@@ -22,15 +23,17 @@ class DigitalCalendars extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            Image.asset(Assets.images.DigitalCalendar),
+            Image.asset(Assets.images.PhotoAlbums),
             SizedBox(
               height: kHorizontalMargin,
             ),
-            const ResponsiveText(
-              'Digital Calendars',
-              fontSize: 16,
-              fontWeight: FontWeight.w500,
-              textAlign: TextAlign.center,
+            Flexible(
+              child: const ResponsiveText(
+                'Photo Albums & Memories',
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                textAlign: TextAlign.center,
+              ),
             )
           ],
         ),

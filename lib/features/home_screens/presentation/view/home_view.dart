@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:memorymate/core/utils/util.dart';
-import 'package:memorymate/features/home_screens/digital_calendar.dart';
-import 'package:memorymate/features/home_screens/emergency_services.dart';
-import 'package:memorymate/features/home_screens/notes.dart';
-import 'package:memorymate/features/home_screens/photo_album.dart';
+import 'package:memorymate/features/home_screen_widgets/digital_calendar/digital_calendar.dart';
+import 'package:memorymate/features/home_screen_widgets/emergency_services/emergency_services.dart';
+import 'package:memorymate/features/home_screen_widgets/notes/notes.dart';
+import 'package:memorymate/features/home_screen_widgets/photo_album/photo_album.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
 
 class MyHomePage extends StatefulWidget {
