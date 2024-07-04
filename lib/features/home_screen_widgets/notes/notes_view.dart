@@ -12,10 +12,12 @@ class NotesView extends StatefulWidget {
 
 class _NotesViewState extends State<NotesView> {
   final List<Map<String, String>> _allNotes = []; // All notes stored here
-  List<Map<String, String>> _visibleNotes = []; // Notes that are currently visible
+  List<Map<String, String>> _visibleNotes =
+      []; // Notes that are currently visible
   final int _loadCount = 5; // Number of notes to load each time
   final TextEditingController _noteTitleController = TextEditingController();
-  final TextEditingController _noteDescriptionController = TextEditingController();
+  final TextEditingController _noteDescriptionController =
+      TextEditingController();
 
   @override
   void dispose() {
@@ -25,7 +27,8 @@ class _NotesViewState extends State<NotesView> {
   }
 
   void _addNote() {
-    if (_noteTitleController.text.isNotEmpty && _noteDescriptionController.text.isNotEmpty) {
+    if (_noteTitleController.text.isNotEmpty &&
+        _noteDescriptionController.text.isNotEmpty) {
       setState(() {
         _allNotes.add({
           "title": _noteTitleController.text,
@@ -40,7 +43,9 @@ class _NotesViewState extends State<NotesView> {
   void _loadMoreNotes() {
     int allNotesCount = _allNotes.length;
     int currentCount = _visibleNotes.length;
-    int nextCount = (currentCount + _loadCount > allNotesCount) ? allNotesCount : currentCount + _loadCount;
+    int nextCount = (currentCount + _loadCount > allNotesCount)
+        ? allNotesCount
+        : currentCount + _loadCount;
     setState(() {
       _visibleNotes = List.from(_allNotes.take(nextCount));
     });
@@ -71,7 +76,8 @@ class _NotesViewState extends State<NotesView> {
           children: [
             Container(
               width: double.infinity,
-              margin: EdgeInsets.symmetric(horizontal: kHorizontalMargin, vertical: kVerticalMargin),
+              margin: EdgeInsets.symmetric(
+                  horizontal: kHorizontalMargin, vertical: kVerticalMargin),
               decoration: BoxDecoration(
                 color: Colors.grey.shade300,
                 borderRadius: BorderRadius.circular(8),
@@ -108,7 +114,9 @@ class _NotesViewState extends State<NotesView> {
                     Center(
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          fixedSize: Size(MediaQuery.of(context).size.width * 0.56, height * 0.07),
+                          fixedSize: Size(
+                              MediaQuery.of(context).size.width * 0.56,
+                              height * 0.07),
                           backgroundColor: const Color(0xFF614E7E),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
@@ -144,7 +152,8 @@ class _NotesViewState extends State<NotesView> {
   Widget _buildNotesList() {
     return ListView.builder(
       shrinkWrap: true, // Required within a SingleChildScrollView
-      physics: NeverScrollableScrollPhysics(), // Required within a SingleChildScrollView
+      physics:
+          NeverScrollableScrollPhysics(), // Required within a SingleChildScrollView
       itemCount: _visibleNotes.length,
       itemBuilder: (BuildContext context, int index) {
         return ListTile(
@@ -163,4 +172,4 @@ class _NotesViewState extends State<NotesView> {
       },
     );
   }
-}     
+}
