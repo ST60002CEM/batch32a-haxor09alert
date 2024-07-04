@@ -12,12 +12,11 @@ class NotesView extends StatefulWidget {
 
 class _NotesViewState extends State<NotesView> {
   final List<Map<String, String>> _allNotes = []; // All notes stored here
-  List<Map<String, String>> _visibleNotes =
-      []; // Notes that are currently visible
+  List<Map<String, String>> _visibleNotes = []; // Notes that are currently visible
   final int _loadCount = 5; // Number of notes to load each time
   final TextEditingController _noteTitleController = TextEditingController();
-  final TextEditingController _noteDescriptionController =
-      TextEditingController();
+  final TextEditingController _noteDescriptionController = TextEditingController();
+  bool _isLoading = false; // Flag to show/hide the loading indicator
 
   @override
   void dispose() {
@@ -27,8 +26,7 @@ class _NotesViewState extends State<NotesView> {
   }
 
   void _addNote() {
-    if (_noteTitleController.text.isNotEmpty &&
-        _noteDescriptionController.text.isNotEmpty) {
+    if (_noteTitleController.text.isNotEmpty && _noteDescriptionController.text.isNotEmpty) {
       setState(() {
         _allNotes.add({
           "title": _noteTitleController.text,
@@ -37,15 +35,28 @@ class _NotesViewState extends State<NotesView> {
         _noteTitleController.clear();
         _noteDescriptionController.clear();
       });
+
+      _showLoadingIndicator();
     }
+  }
+
+  void _showLoadingIndicator() {
+    setState(() {
+      _isLoading = true;
+    });
+
+    Future.delayed(Duration(seconds: 2), () {
+      setState(() {
+        _isLoading = false;
+        _loadMoreNotes();
+      });
+    });
   }
 
   void _loadMoreNotes() {
     int allNotesCount = _allNotes.length;
     int currentCount = _visibleNotes.length;
-    int nextCount = (currentCount + _loadCount > allNotesCount)
-        ? allNotesCount
-        : currentCount + _loadCount;
+    int nextCount = (currentCount + _loadCount > allNotesCount) ? allNotesCount : currentCount + _loadCount;
     setState(() {
       _visibleNotes = List.from(_allNotes.take(nextCount));
     });
@@ -135,14 +146,9 @@ class _NotesViewState extends State<NotesView> {
                 ),
               ),
             ),
+            if (_isLoading)
+              Center(child: CircularProgressIndicator()),
             _buildNotesList(),
-            if (_visibleNotes.length < _allNotes.length)
-              Center(
-                child: ElevatedButton(
-                  onPressed: _loadMoreNotes,
-                  child: const Text('Load More'),
-                ),
-              ),
           ],
         ),
       ),
@@ -151,9 +157,8 @@ class _NotesViewState extends State<NotesView> {
 
   Widget _buildNotesList() {
     return ListView.builder(
-      shrinkWrap: true, // Required within a SingleChildScrollView
-      physics:
-          NeverScrollableScrollPhysics(), // Required within a SingleChildScrollView
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
       itemCount: _visibleNotes.length,
       itemBuilder: (BuildContext context, int index) {
         return ListTile(
