@@ -6,7 +6,9 @@ import 'package:memorymate/features/forgetpassword/presentation/view/forget_pass
 import 'package:memorymate/features/auth_screen/login_screen/widgets/login_header.dart';
 import 'package:memorymate/features/auth_screen/register_screen/presentation/view/register_view.dart';
 import 'package:memorymate/features/home_screens/presentation/view/home_view.dart';
+import 'package:memorymate/repository/user_repository.dart';
 import 'package:memorymate/widgets/responsive_text.dart';
+import 'package:memorymate/widgets/snack_bar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -18,14 +20,30 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   bool _isPasswordHidden = true;
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
+  final _emailController = TextEditingController(text: "usertest@gmail.com");
+  final _passwordController = TextEditingController(text: "123456");
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  _loginUserwithAPI(String email, String password) async {
+    final loginResponse = await UserRepository().loginUser(email, password);
+    if (loginResponse == true) {
+      showSnackBar(context, "Login Succesfull!", Colors.green);
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const MyHomePage(),
+        ),
+      );
+    } else {
+      showSnackBar(
+          context, "Either email or password is incorrect", Colors.red);
+    }
   }
 
   @override
@@ -190,12 +208,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       onPressed: () {
                         if (_formKey.currentState?.validate() ?? false) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const MyHomePage(),
-                            ),
-                          );
+                          _loginUserwithAPI(
+                              _emailController.text, _passwordController.text);
                         }
                       },
                     ),
