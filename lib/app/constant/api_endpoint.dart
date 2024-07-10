@@ -1,5 +1,6 @@
 import 'package:memorymate/model/user.dart';
 
+
 const Duration connectionTimeout = Duration(seconds: 1000);
 const Duration receiveTimeout = Duration(seconds: 1000);
 //  const String baseUrl = "http://10.0.2.2:3000/api/v1/";
@@ -15,3 +16,4 @@ User? loggedInUser;
 // ====================== Auth Routes ======================
 const String loginUrl = "user/login";
 const String registerUrl = "user/register";
+
