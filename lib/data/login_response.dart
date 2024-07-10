@@ -1,16 +1,16 @@
-class LoginResponse{
-bool? success;
-String? token;
-LoginResponse({this.success, this.token});
-factory LoginResponse.fromJson(Map<String,dynamic>json){
-return LoginResponse(success:json["success"],token:json["token"]);
+import 'package:json_annotation/json_annotation.dart';
+import 'package:memorymate/model/user.dart';
 
+part 'login_response.g.dart';
 
-}
-Map<String, dynamic> toJson(){
-return { "success":success, "token": token};
+@JsonSerializable()
+class LoginResponse {
+  bool? success;
+  String? accessToken;
+  User? data;
+  LoginResponse({this.success, this.accessToken, this.data});
 
-}
+  factory LoginResponse.fromJson(Map<String, dynamic> json) => _$LoginResponseFromJson(json);
 
-
+  Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
 }

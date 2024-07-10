@@ -47,6 +47,7 @@ dependencies:
   build_runner: ^2.4.11
   json_annotation: ^4.9.0
   dio_logging_interceptor: ^1.0.1
+  mockito: ^5.4.4
 
 dev_dependencies:
   flutter_test:

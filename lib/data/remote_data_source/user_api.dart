@@ -33,7 +33,8 @@ class UserAPI {
       final LoginResponse parsedLoginResponse =
           LoginResponse.fromJson(response.data);
       if (parsedLoginResponse.success == true) {
-        tokenConstant = parsedLoginResponse.token;
+        tokenConstant = parsedLoginResponse.accessToken;
+        loggedInUser = parsedLoginResponse.data;
         final sharedPref = await SharedPreferences.getInstance();
         sharedPref.setString("token", tokenConstant!);
         isLogin = true;

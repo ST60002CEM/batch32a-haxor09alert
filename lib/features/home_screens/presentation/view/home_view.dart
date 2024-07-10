@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:memorymate/app/constant/api_endpoint.dart';
+import 'package:memorymate/core/constants/constants.dart';
 import 'package:memorymate/core/utils/util.dart';
 import 'package:memorymate/features/home_screen_widgets/digital_calendar/digital_calendar.dart';
 import 'package:memorymate/features/home_screen_widgets/emergency_services/emergency_services.dart';
@@ -47,18 +49,16 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.all(8.0),
             child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                '',
-              ),
+              backgroundImage: NetworkImage(loggedInUser!.avatar!),
             ),
           ),
         ],
       ),
       body: Column(
-        children: [
+        children: [ 
           SizedBox(
             height: kVerticalMargin,
           ),
